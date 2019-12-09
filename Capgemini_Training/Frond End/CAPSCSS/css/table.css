@@ -1,0 +1,27 @@
+table, th, td{
+    /* border: 1px solid black;
+    border-collapse: collapse; */
+    margin-left: 443px;
+    margin-top: 248px;
+    text-align: center;
+    padding: 8px;
+    border-radius: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'Arial Narrow', Arial, sans-serif;
+}
+table{
+    width :36%;
+}
+th{
+    background-color: grey;
+}
+tr:nth-child(even){
+    background-color: skyblue;
+}
+tr:nth-child(odd){
+    background-color: thistle;
+}
+td:hover{
+    background-color: tomato;
+    color: white;
+    cursor: pointer;
+}

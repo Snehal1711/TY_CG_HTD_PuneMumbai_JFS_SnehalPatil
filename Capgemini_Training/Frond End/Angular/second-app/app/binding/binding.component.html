@@ -1,0 +1,23 @@
+<h1>Interpolation</h1>
+<h1>{{123+321}}</h1>
+
+<h2>style binding</h2>
+<h1 [style.background]='flag ?"green":"red"'
+[style.color]='flag ? "red" :"green"'>{{name}}</h1>
+
+<h1 [class.text-primary]='flag' [class.bg-danger]='flag'>Class Binding</h1>
+
+<h2>Event Binding</h2>
+<input type="text" #myInput>
+<button class="btn btn-primary" (click)='eventOccured(myInput)'>Click Me</button>
+<!-- <button class="btn btn-primary" (clic)></button> -->
+
+<h2>data-binding</h2>
+<img src="{{imgURL}}" alt=""><br>
+
+<h2>property binding</h2>
+<img [src]="imgURL1" alt="">
+
+<h2>Two way binding</h2>
+<input type="text" [(ngModel)]='inputData'>
+<h1>{{inputData}}</h1>

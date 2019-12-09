@@ -1,0 +1,30 @@
+<div class="col-md-4 offset-md-4 mt-5">
+    <form [formGroup]='registerForm' (ngSubmit)='printForm(registerForm)'>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email"  class="form-control" formControlName='email'>
+            <!-- <div *ngIf ='email.touched && email.invalid'>
+                <p class="text-danger">
+                    This field is mandatory
+                </p>
+
+            </div>
+            <div *ngIf ='email.errors.required'>
+                    <p class="text-danger">
+                        This field is accept only email
+                    </p>
+            </div>
+            <div *ngIf ='email.errors.minlength'>
+                    <p class="text-danger">
+                        Minimum 8 character
+                    </p>
+            </div> -->
+        </div>
+        <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password"  class="form-control" formControlName='password'>
+        </div>
+        <button type="submit" class="btn btn-outline-primary float-right"
+        [disabled]='registerForm.invalid'>Register</button>
+    </form>
+</div>

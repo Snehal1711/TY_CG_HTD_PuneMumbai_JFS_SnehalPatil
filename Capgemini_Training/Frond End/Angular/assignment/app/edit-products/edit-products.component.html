@@ -1,0 +1,74 @@
+<h4 class="text-center text-primary">Edit Products</h4>
+<div class="card card-body col-md-3 float-left" *ngFor='let product of productService.products'>
+    <img [src]="product.imgURL" alt="" class="card-img-top">
+    <h3>{{product.productName}}</h3>
+    <p>{{product.price |currency : 'INR'}}</p>
+    <p>{{product.details}}</p>
+    <div class="btn-group">
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" (click)='selectProduct(product)'>
+    Update
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Product</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          (click)="productService.getData()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form #updateProduct="ngForm" (ngSubmit)="addProduct(updateProduct)">
+                <input type="hidden" name="pk" #pk="ngModel" [(ngModel)]='selectedProduct.pk'>
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" name="productName" class="form-control" #productName="ngModel" 
+                    [(ngModel)] ="selectedProduct.productName" placeholder="Enter name here.." required>
+                </div>
+                <div class="form-group">
+                    <label for="productCat">Product Category</label>
+                    <select name="productCat" id="productCat" class="custom-select" #productCat="ngModel" 
+                    [(ngModel)] ="selectedProduct.productCat">
+                        <option value="fashion">Fashion</option>
+                        <option value="electronic">Electronics</option>
+                        <option value="kitchen">Kitchen</option>
+                        <option value="home">Home</option>
+                        <option value="beauty">Beauty</option>
+                        <option value="grocerries">Grocerry</option>
+                        <option value="aplliances">Aplliances</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">Product Price</label>
+                    <input type="number" name="price" id="price" #price="ngModel" [(ngModel)] ="selectedProduct.price"
+                    class="form-control">
+                </div>
+                <div class="form-group">
+                        <label for="details">Product Details</label>
+                        <input type="text" name="details" id="details" #details="ngModel" 
+                        [(ngModel)]="selectedProduct.details" class="form-control"  style="height: 200px;" required>
+                </div>
+                <div class="form-group">
+                        <label for="imgURL">Product Image</label>
+                        <input type="url" name="imgURL" id="imgURL" class="form-control" #imgURL="ngModel" 
+                        [(ngModel)] ="selectedProduct.imgURL" placeholder="Enter imageUrl">
+                </div>
+                <div class="btn-group">
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                    <button type="submit" class="btn btn-primary" [disabled]='updateProduct.invalid'>
+                        Submit
+                    </button>
+                </div>
+        
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+     <button type="submit" class="btn btn-outline-warning" (click)="deleteProduct(product)">Delete</button>
+    </div>
+</div>

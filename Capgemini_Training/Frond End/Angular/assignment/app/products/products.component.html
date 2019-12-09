@@ -1,0 +1,12 @@
+
+<h4 class="text-center text-primary">Products</h4>
+<div class="col-md-4 offset-md-4 mt-3">
+    <input type="search" name="search" id="search" [(ngModel)]="search" 
+    class="form-control" placeholder="Enter product to be search..">
+</div>
+<div class="card card-body col-md-3 float-left mt-4" *ngFor='let product of productService.products |filter :search'>
+    <img [src]="product.imgURL" alt="" class="card-img-top">
+    <h3>{{product.productName}}</h3>
+    <p>{{product.price |currency : 'INR'}}</p>
+    <p>{{product.details}}</p>
+</div>
