@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+	<!-- <bean id="mobile" class="com.capgemini.springcore.beans.MobileBean"
+		autowire="byName">
+		<property name="brandName" value="Xiaomi"></property>
+		<property name="modelName" value="Redmi A3"></property>
+		<property name="price" value="15999"></property>
+	</bean> -->
+	
+	<!-- <bean id="mobile" class="com.capgemini.springcore.beans.MobileBean"
+		autowire="byType">
+		<property name="brandName" value="Xiaomi"></property>
+		<property name="modelName" value="Redmi A3"></property>
+		<property name="price" value="16999"></property>
+	</bean> -->
+	
+	<bean id="mobile" class="com.capgemini.springcore.beans.MobileBean">
+		<property name="brandName" value="Xiaomi"></property>
+		<property name="modelName" value="Redmi A3"></property>
+		<property name="price" value="16999"></property>
+		<property name="displayBean" ref="display"></property>
+	</bean>
+	<bean id="display" class="com.capgemini.springcore.beans.MobileDisplayBean">
+	<property name ="displaySize" value="5.5"></property>
+	<property name="resolution" value="1235500"></property>
+	</bean>
+
+</beans>
